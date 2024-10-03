@@ -1,0 +1,245 @@
+@use "base/variables" as vr;
+@use "base/mixins" as mxn;
+
+.carrito {
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+
+    &__contenedor {
+        
+        display: flex;
+        flex-direction: column;
+
+        @include mxn.tablet{
+            
+        }
+
+        @include mxn.desktop {
+            
+        }
+    }
+
+    &__regresar {
+
+        border-bottom: 1px solid silver;
+    }
+
+    &__regresar-boton {
+
+        border: none;
+        background-color: transparent;
+        text-decoration: none;
+        padding: 0 1rem;
+        cursor: pointer;
+    }
+
+    &__regresar-texto {
+
+        text-align: left;
+        margin-bottom: 1rem;
+
+        &:hover {
+
+            color: vr.$primario;
+        }
+    }
+
+    &__titulo {
+
+        text-align: center;
+        font-weight: bold;
+        margin-top: 3.5rem;
+        margin-bottom: 2.5rem;
+    }
+
+    &__articulo {
+
+        display: grid;
+        grid-template-columns: 10rem 1fr 16rem 5rem 10rem;
+        grid-template-rows: repeat(1, 10rem); 
+        gap: 2rem; 
+        align-items: center;
+        justify-items: center;
+
+        border: 0px solid #ccc;
+        border-radius: 1rem;
+        box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25);
+
+        padding: 1rem 0;
+        margin-bottom: 2rem;
+    }
+
+    &__articulo-imagen {
+
+        width: 6rem;
+        height: auto;
+        border-radius: 0.5rem;
+    }
+
+    &__articulo-titulo {
+
+        text-transform: uppercase;
+        text-align: center;
+    }
+
+    &__articulo-precio {
+
+        text-align: center;
+    }
+
+    &__articulo-eliminar {
+
+        text-align: center;
+        transition: 0.5s;
+        border: none;
+        background-color: transparent;
+        cursor: pointer;
+
+        &:hover {
+
+            color: red;
+            transition: 0.5s;
+        }
+    }
+
+    &__vacio {
+
+        text-align: center;
+        padding: 0 2rem;
+    }
+
+    &__enlace {
+
+        text-decoration: none;
+        color: vr.$primario;
+    }
+
+    &__totales-contenedor-totales {
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 1rem;
+    }
+
+    &__totales {
+        
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-items: center;
+
+        @include mxn.tablet{
+            
+        }
+
+        @include mxn.desktop {
+            
+        }
+    }
+
+    &__totales-contenedor-botones {
+
+        display: flex;
+        flex-direction: row;
+        margin-top: 3rem;
+    }
+
+    &__totales-comprar {
+
+        width: 16rem;
+        height: 5rem;
+        border: 2px solid #C5801A;
+        background: #C5801A;
+        border-radius: 2.5rem;
+        font-size: 1.8rem;
+        color: #FFFFFF;
+        font-weight: 700;
+        cursor: pointer;
+        outline: none;
+        transition: .5s;
+        margin-bottom: 40px;
+        transition: 0.3s;
+
+        &:hover {
+
+            box-shadow: 0 0 0.8rem rgba(0, 0, 0, 0.3);
+            transition: 0.3s;
+        }
+    }
+
+    &__totales-reiniciar {
+
+        width: 16rem;
+        height: 5rem;
+        border: 2px solid #C5801A;
+        background: #FFFFFF;
+        border-radius: 2.5rem;
+        font-size: 1.8rem;
+        color: #C5801A;
+        font-weight: 700;
+        cursor: pointer;
+        outline: none;
+        transition: .5s;
+        margin-bottom: 40px;
+        margin-right: 3rem;
+        transition: 0.3s;
+
+        &:hover {
+
+            background: #C5801A;
+            color: #FFFFFF;
+            border: 2px solid #C5801A;
+            box-shadow: 0 0 0.8rem rgba(0, 0, 0, 0.3);
+            transition: 0.3s;
+        }
+    }
+}
+
+.cantidad {
+
+    &__contenedor {
+
+        display: flex;
+        gap: 0;
+        flex-direction: column;
+    }
+    
+    &__contenedor-incrementar-decrementar {
+
+        padding: 7px;
+        display: flex;
+        align-items: center;
+        border: 2px solid vr.$primario;
+        border-radius: 0.5rem;
+        cursor: pointer;
+    }
+
+    &__btncolor {
+
+        color: vr.$primario;
+    }
+
+    &__input {
+
+        border: none;
+        width: 60px;
+        height: 100%;
+        font-weight: 500;
+        text-align: center;
+
+        &::-webkit-inner-spin-button,
+        &::-webkit-outer-spin-button{
+            -webkit-appearance: none;
+            appearance: none;
+        }
+
+        &:focus{
+            outline: none;
+        }
+    }
+}

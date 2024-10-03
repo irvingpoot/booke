@@ -1,0 +1,66 @@
+@use "base/variables" as vr;
+@use "base/mixins" as mxn;
+
+.dropwdown{
+    display: none;
+    position: absolute;
+    max-width: 30rem;
+    right: 25%;
+    left: 25%;
+
+    @include mxn.tablet{
+        right: 1%;
+        left: auto;
+    }
+
+    &__contenido{
+        padding: 2rem;
+        border-radius: 1rem;
+        text-align: right;
+        background-color: vr.$negro;
+        color: vr.$blanco;
+    }
+
+    &__elemento{
+        list-style: none;
+        font-size: 1.5rem;
+    }
+
+    &__usuario{
+        text-decoration: underline;
+        font-style: italic;
+        margin-top: 0;
+    }
+
+    &__cerrar-sesion{
+        border: none;
+        background: none;
+        cursor: pointer;
+        color: vr.$blanco;
+    }
+}
+
+.dropwdown-sidebar{
+    display: none;
+    
+    &__contenido{
+        text-align: left;
+        padding-left: 1rem;
+        color: vr.$blanco;
+    }
+    
+    &__elemento{
+        list-style-type: georgian;
+        font-size: 1.5rem;
+        text-decoration: underline;
+        margin-bottom: 1.5rem;
+
+        a{
+            color: vr.$blanco;
+        }
+    }
+}
+
+.dropwdown-show{
+    display: block;
+}

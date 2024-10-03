@@ -1,0 +1,214 @@
+@use "base/variables" as vr;
+@use "base/mixins" as mxn;
+
+.crear {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    font-family: vr.$fuente-principal;
+
+    &__contenedor {
+        max-width: 40rem;
+        background: vr.$blanco;
+        border-radius: 1rem;
+        box-shadow: 0rem 0rem 2.5rem rgba(0,0,0,0.1);
+
+        @include mxn.tablet{
+            width: 40rem;
+        }
+    }
+
+    &__titulo {
+        color: #C5801A;
+        text-align: center;
+        padding: 1.5rem;
+        margin-bottom: 1.5rem;
+
+    }
+
+    &__regresar{
+            border: 0px solid #e9f4fb;
+            background: #C5801A;
+            border-radius: 2.5rem;
+            font-size: 1.8rem;
+            color: #FFFFFF;
+            font-weight: 700;
+            text-decoration: none;
+            padding: 1rem 2rem;
+            transition: .5s;
+            margin-top: 40px;
+            margin-bottom: 40px;
+
+            &:hover {
+
+                border: none;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+                color: #FFFFFF;
+                transition: .5s;
+            }
+    }
+}
+
+.formulario-crear {
+
+    padding: 0 4rem;
+    box-sizing: border-box;
+
+    &__campo {
+        position: relative;
+        border-bottom: 0.2rem solid #adadad;
+        margin: 3rem 0;
+
+        span::before {
+            content: '';
+            position: absolute;
+            top: 4rem;
+            left: 0;
+            width: 0%;
+            height: 0.2rem;
+            background: #2691d9;
+            transition: .4s;
+        }
+
+        input:focus ~ label,
+        input:valid ~ label {
+            top: -0.5rem;
+            color: #2691d9;
+        }
+
+        input:focus ~ span::before,
+        input:valid ~ span::before {
+            width: 100%;
+        }
+
+        
+    }
+
+    &__input {
+
+        width: 100%;
+        padding: 0 0.5rem;
+        height: 4rem;
+        font-size: 1.6rem;
+        border: none;
+        background: none;
+        outline: none;
+
+        &--submit {
+
+            width: 100%;
+            height: 5rem;
+            border: 0px solid #e9f4fb;
+            background: #C5801A;
+            border-radius: 2.5rem;
+            font-size: 1.8rem;
+            color: #FFFFFF;
+            font-weight: 700;
+            cursor: pointer;
+            outline: none;
+            transition: .5s;
+            margin-bottom: 40px;
+
+            &:hover {
+
+                border: none;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+                color: #FFFFFF;
+                transition: .5s;
+            }
+        }
+
+        &--imagen {
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            cursor: pointer;
+            color:#adadad;
+        }
+
+        
+    }
+
+    &__label {
+
+        position: absolute;
+        top: 50%;
+        left: 0.5rem;
+        color: #adadad;
+        transform: translateY(-50%);
+        font-size: 1.6rem;
+        pointer-events: none;
+        transition: .5s;
+
+        &--imagen{
+            text-align: center;
+            font-family: vr.$fuente-principal;
+            color:#adadad;
+            font-size: 1.6rem;
+            margin-bottom: 4rem;
+
+        }
+    }
+
+
+
+    &__enlace {
+        color: #a6a6a6;
+        cursor: pointer;
+        font-size: 80%;
+        text-decoration: none;
+
+        &:hover {
+
+            text-decoration: underline;
+        }
+    }
+}
+
+.invalid-feedback{
+    margin-top: -2.5rem;
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+    color: vr.$rojo;
+    text-align: right;
+}
+
+.modalAlerta {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    border-radius: 25px;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 40%;
+    text-align: center;
+    color: #C5801A;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}

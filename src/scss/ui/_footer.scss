@@ -1,0 +1,72 @@
+@use "base/variables" as vr;
+@use "base/mixins" as mxn;
+
+.footer{
+    display: flex;
+    flex-direction: column;
+    padding: 3rem;
+    margin-top: 6rem;
+    background-color: vr.$primario;
+
+    @include mxn.tablet{
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        gap: 3rem;
+    }
+
+    &__sociales{
+        display: flex;
+        justify-content: center;
+        gap: 3rem;
+        margin: 3rem 0;
+    }
+    
+    &__social{
+        color: vr.$blanco;
+        font-size: 2rem;        
+    }
+
+    &__copyright{
+        color: vr.$blanco;
+        font-size: 1rem;
+        margin: 0;
+    }
+}
+
+.modalAlerta {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    border-radius: 25px;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 40%;
+    text-align: center;
+    color: #C5801A;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}

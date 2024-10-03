@@ -1,0 +1,38 @@
+@use "base/variables" as vr;
+@use "base/mixins" as mxn;
+
+.navegacion{
+    display: flex;
+    justify-content: space-evenly;
+    gap: 5rem;
+    order: 2;
+    padding: 1rem;
+
+    @include mxn.tablet{
+        padding: auto;
+        justify-content: space-between;
+    }
+
+    &__enlace{
+        font-weight: bold;
+        color: vr.$negro;
+        transition: 0.5s;
+
+        &:hover {
+            color: vr.$primario;
+            transition: 0.5s;
+        }
+
+        &--active{
+            font-weight: bold;
+            color: vr.$primario;
+        }
+    }
+}
+
+.navegacion-hide{
+    opacity: 0;
+    @include mxn.tablet{
+        opacity: 1;
+    }
+}

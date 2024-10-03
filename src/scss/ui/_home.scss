@@ -1,0 +1,107 @@
+@use "base/variables" as vr;
+@use "base/mixins" as mxn;
+
+.home{
+    &__grid{
+        align-items: center;
+        @include mxn.tablet{
+            @include mxn.grid(1,5rem);
+        }
+        @include mxn.desktop{
+            @include mxn.grid(2,5rem);
+        }
+    }
+
+    &__contenedor{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin: 8rem 0;
+    }
+
+    &__contenido{
+        width: 50rem;
+        margin: 0 auto;
+    }
+
+    &__buscador-enlace{
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 1rem;
+        margin-top: 5rem;
+    }
+
+    &__boton-buscar{
+        width: 23rem;
+        height: 7rem;
+    
+        @include mxn.tablet{
+            width: 23rem;
+            height: 7rem;
+        }
+    
+        @include mxn.desktop{
+            width: 24rem;
+            height: 8rem;
+        }
+    }
+
+    &__boton-flecha{
+        width: 3rem;
+        height: 3rem;
+    }
+
+    &__titulo{
+        color: vr.$negro;
+        font-size: 4rem;
+        font-family: vr.$fuente-principal;
+        font-weight: 600; 
+        word-wrap: break-word;
+        margin: 0;
+        line-height: 1.5;
+    
+        @include mxn.desktop{
+            font-size: 5rem;
+        }
+
+        &-span{
+            color: vr.$primario;
+            font-size: 4rem;
+            font-family: vr.$fuente-principal;
+            font-weight: 600;
+            word-wrap: break-word;
+        
+            @include mxn.desktop{
+                font-size: 5rem;
+            }
+        }
+    }
+
+    &__subtitulo{
+        color: #a6a6a6;
+        font-size: 1.5rem;
+        font-family: vr.$fuente-principal;
+        font-weight: 500;
+        word-wrap: break-word;
+    
+        @include mxn.tablet{
+            font-size: 1.5rem;
+        }
+    }
+
+    &__contenido-imagen{
+        display: none;
+
+        @include mxn.tablet{
+            display: block;
+            margin: 0 auto;
+        }
+    }
+
+    &__imagen{
+        @include mxn.tablet{
+            max-width: 47rem;
+        }
+    }
+}

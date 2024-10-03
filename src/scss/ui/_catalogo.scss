@@ -1,0 +1,167 @@
+@use "base/variables" as vr;
+@use "base/mixins" as mxn;
+
+.catalogo{
+    @include mxn.tablet{
+        margin-top: 5rem;
+    }
+
+    &__grid{
+        @include mxn.grid(1,4rem);
+        margin-top: 5rem;
+
+        @include mxn.tablet{
+            @include mxn.grid(2,4rem);
+        }
+
+        @include mxn.desktop{
+            @include mxn.grid(3,4rem);
+        }
+    }
+
+    
+    &__titulo-no-registro{
+        text-align: center;
+        grid-column: 1 / 4;
+        color: #6D737A;
+        opacity: 0.5;
+    }
+}
+.formulario-filtro{
+    margin: 5rem auto 2rem auto;
+    background-color: vr.$blanco;
+    border-radius: 5rem;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 0px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+    padding: 3rem 0;
+
+    @include mxn.desktop{
+        display: flex;
+        justify-content: space-between;
+        max-width: 90rem;
+        padding: 0;
+    }
+
+    &__campo{
+        display: flex;
+        flex-direction: column;
+        padding: 1rem 2rem;
+        font-size: 1.5rem;
+
+        &:nth-child(1){
+            @include mxn.desktop{
+                padding-left: 3rem;
+            }
+        }
+    }
+
+    &__label{
+        font-size: 1.5rem;
+        font-weight: 900;
+        border-bottom: 10rem;
+    }
+
+    &__input{
+        border: none;
+        width: 100%;
+        color: vr.$gris;
+    }
+
+    &__submit{
+        display: block;
+        height: 4rem;
+        border: none;
+        border-radius: 2rem;
+        background-image: radial-gradient(circle, lighten(vr.$primario, 10%) 0%, vr.$primario 100% );
+        padding: 0 4rem;
+        color: vr.$blanco;
+        text-transform: uppercase;
+        font-weight: bold;
+        font-size: 1.2rem;
+        transition: 0.3s;
+
+        &:hover{
+            transition: 0.3s;
+            transform: scale(1.05);
+        }
+    }
+}
+
+.libro{
+    background-color: vr.$blanco;
+    border-radius: 1rem;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 0px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+    width: 30rem;
+    aspect-ratio: 1 / 2;
+    margin: 0 auto;
+    transition-property: transform;
+    transition-duration: 0.3s;
+
+    &:hover{
+        transform: scale(1.05);
+    }
+
+    &__contenedor-imagen{
+        display: flex;
+        justify-content: center;
+        padding-top: 2rem;
+    }
+
+    &__imagen{
+        object-fit: fill;
+        width: 20rem;
+        height: 30.6rem;
+    }
+
+
+    &__titulo{
+        color: vr.$negro;
+        font-size: 2.5rem;
+        text-align: center;
+        text-transform: uppercase;
+        margin: 0;
+    }
+
+    &__contenido{
+        padding: 2rem;
+    }
+
+    &__autor{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 0.5rem;
+        margin-top: 2rem;
+
+        &-imagen{
+            width: 3rem;
+            height: 3rem;
+        }
+
+        &-nombre{
+            color: #6D737A;
+        }
+    }
+
+    &__precio{
+        font-size: 3rem;
+        color: vr.$azul;
+        text-align: center;
+        margin: 1rem 0 0 0;
+    }
+
+    &__categoria{
+        color: #6D737A;
+        text-align: center;
+    }
+
+
+    &__enlace{
+        @include mxn.boton(vr.$primario,vr.$blanco);
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+        font-weight: 400;
+        border-bottom-left-radius: 1rem;
+        border-bottom-right-radius: 1rem;
+    }
+}

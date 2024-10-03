@@ -1,0 +1,160 @@
+@use "base/variables" as vr;
+@use "base/mixins" as mxn;
+
+.contacto {
+    display: flex;
+    justify-content: center;
+    background-color: vr.$blanco;
+    margin-top: 3rem;
+    font-family: vr.$fuente-principal;
+
+    &__contenedor {
+        width: 32rem;
+        background: vr.$blanco;
+        border-radius: 1rem;
+        box-shadow: 0rem 0rem 2.5rem rgba(0,0,0,0.1);
+
+        @include mxn.tablet{
+            width: 40rem;
+        }
+    }
+
+    &__titulo {
+        color: #C5801A;
+        text-align: center;
+        padding: 1.5rem;
+        margin: 0;
+        border-bottom: 1px solid silver;
+    }
+}
+
+.formulario-contacto {
+
+    padding: 0 4rem;
+    box-sizing: border-box;
+
+    &__campo {
+        position: relative;
+        border-bottom: 0.2rem solid #adadad;
+        margin: 3rem 0;
+
+        span::before {
+            content: '';
+            position: absolute;
+            top: 4rem;
+            left: 0;
+            width: 0%;
+            height: 0.2rem;
+            background: #2691d9;
+            transition: .4s;
+        }
+
+        input:focus ~ label,
+        input:valid ~ label {
+            top: -0.5rem;
+            color: #2691d9;
+        }
+
+        input:focus ~ span::before,
+        input:valid ~ span::before {
+            width: 100%;
+        }
+    }
+
+    &__input {
+
+        width: 100%;
+        padding: 0 0.5rem;
+        height: 4rem;
+        font-size: 1.6rem;
+        border: none;
+        background: none;
+        outline: none;
+
+        &--submit {
+
+            width: 100%;
+            height: 5rem;
+            border: 0px solid #e9f4fb;
+            background: #C5801A;
+            border-radius: 2.5rem;
+            font-size: 1.8rem;
+            color: #FFFFFF;
+            font-weight: 700;
+            cursor: pointer;
+            outline: none;
+            transition: .5s;
+            margin-bottom: 40px;
+
+            &:hover {
+
+                border: none;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+                color: #FFFFFF;
+                transition: .5s;
+            }
+        }
+    }
+
+    &__label {
+
+        position: absolute;
+        top: 50%;
+        left: 0.5rem;
+        color: #adadad;
+        transform: translateY(-50%);
+        font-size: 1.6rem;
+        pointer-events: none;
+        transition: .5s;
+    }
+
+    &__textarea {
+
+        width: 100%;
+        padding: 1rem 1rem;
+        height: 10rem;
+        font-size: 1.6rem;
+        border: 0.2rem solid #adadad;
+        background: none;
+        outline: none;
+        margin-top: 20px;
+    }
+
+    &__label-textarea {
+
+        position: absolute;
+        top: 0;
+        left: 0.5rem;
+        color: #adadad;
+        transform: translateY(-50%);
+        font-size: 1.6rem;
+        pointer-events: none;
+        transition: .5s;
+    }
+
+    &__campo-textarea {
+
+        position: relative;
+        margin: 3rem 0;
+    }
+
+    &__enlace {
+        color: #a6a6a6;
+        cursor: pointer;
+        font-size: 80%;
+        text-decoration: none;
+
+        &:hover {
+
+            text-decoration: underline;
+        }
+    }
+}
+
+.invalid-feedback{
+    margin-top: -2.5rem;
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+    color: vr.$rojo;
+    text-align: right;
+}

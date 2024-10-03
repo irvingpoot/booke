@@ -1,0 +1,56 @@
+@use "base/variables" as vr;
+@use "base/mixins" as mxn;
+
+.logo{
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+
+    &__img{
+        width: 8.5rem;
+        height: 8.5rem;
+
+        @include mxn.tablet{
+            width: 6rem;
+            height: 6rem;
+        }
+
+        @include mxn.desktop{
+            width:  8.5rem;
+            height:  8.5rem;
+        }
+    }
+
+    &__titulo{
+        font-size: 5rem;
+        font-family: vr.$fuente-secundaria;
+        color: vr.$negro;
+        margin: 0;
+
+        @include mxn.tablet{
+            font-size: 4rem;
+        }
+
+        @include mxn.desktop{
+            font-size: 5rem;
+        }
+    }
+
+    &__subtitulo{
+        font-size: 1.5rem;
+        margin: 0;
+        color: lighten(vr.$negro, 48%);
+
+        &--footer{
+            color: vr.$gris-claro;
+        }
+
+        @include mxn.tablet{
+            font-size: 1.3rem;
+        }
+
+        @include mxn.desktop{
+            font-size: 1.5rem;
+        }
+    }
+}

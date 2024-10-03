@@ -1,0 +1,16 @@
+@use "base/variables" as vr;
+@use "base/mixins" as mxn;
+
+.hero{
+    background-image: url(../img/Hero.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 50%;
+    padding: 5rem 0;
+
+    &__titulo{
+        font-size: 4.8rem;
+        text-align: center;
+        color: vr.$blanco;
+    }
+}

@@ -1,0 +1,225 @@
+@use "base/variables" as vr;
+@use "base/mixins" as mxn;
+
+.login {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    background-color: #C5801A;
+    height: 100vh;
+    overflow: hidden;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+
+    &__contenedor {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 32rem;
+        background: white;
+        border-radius: 1rem;
+        box-shadow: 1rem 1rem 1.5rem rgba(0,0,0,0.05);
+
+        @include mxn.tablet{
+            width: 40rem;
+        }
+
+        @include mxn.desktop {
+            left: 23%;
+        }
+    }
+
+    &__img{
+        width: 6rem;
+        height: 6rem;
+        margin: 2rem auto 0 auto;
+    }
+
+    &__titulo {
+        color: #C5801A;
+        text-align: center;
+        padding: 1.5rem;
+        margin: 0;
+        border-bottom: 1px solid silver;
+    }
+}
+
+.formulario-login {
+
+    padding: 0 4rem;
+    box-sizing: border-box;
+
+    &__campo {
+        position: relative;
+        border-bottom: 0.2rem solid #adadad;
+        margin: 3rem 0;
+
+        span::before {
+            content: '';
+            position: absolute;
+            top: 4rem;
+            left: 0;
+            width: 0%;
+            height: 0.2rem;
+            background: #2691d9;
+            transition: .4s;
+        }
+
+        input:focus ~ label,
+        input:valid ~ label {
+            top: -0.5rem;
+            color: #2691d9;
+        }
+
+        input:focus ~ span::before,
+        input:valid ~ span::before {
+            width: 100%;
+        }
+    }
+
+    &__input {
+
+        width: 100%;
+        padding: 0 0.5rem;
+        height: 4rem;
+        font-size: 1.6rem;
+        border: none;
+        background: none;
+        outline: none;
+
+        &--submit {
+
+            width: 100%;
+            height: 5rem;
+            border: 0px solid #e9f4fb;
+            background: #FFC42A;
+            border-radius: 2.5rem;
+            font-size: 1.8rem;
+            color: #FFFFFF;
+            font-weight: 700;
+            cursor: pointer;
+            outline: none;
+            margin-top: 2.5rem;
+            transition: .5s;
+
+            &:hover {
+
+                border: none;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+                color: #FFFFFF;
+                transition: .5s;
+            }
+        }
+    }
+
+    &__label {
+
+        position: absolute;
+        top: 50%;
+        left: 0.5rem;
+        color: #adadad;
+        transform: translateY(-50%);
+        font-size: 1.6rem;
+        pointer-events: none;
+        transition: .5s;
+    }
+
+    &__enlace {
+        color: #a6a6a6;
+        cursor: pointer;
+        font-size: 80%;
+        text-decoration: none;
+
+        &:hover {
+
+            text-decoration: underline;
+        }
+    }
+
+    &__registrarse {
+
+        margin: 3rem 0;
+        text-align: center;
+        font-size: 1.6rem;
+        color: #666666;
+    }
+
+    &__registrarse-enlace {
+
+        color: #2691d9;
+        text-decoration: none;
+
+        &:hover {
+
+            text-decoration: underline;
+        }
+    }
+}
+
+.rectangle {
+
+    display: none;
+
+    @include mxn.desktop {
+        position: fixed;
+        width: 81.5rem;
+        height: 120rem;
+        right: -10rem;
+        top: -2rem;
+        border: 0 solid #000000;
+        background: url(../img/Rectangle.svg);
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+        display: inline;
+    }
+}
+
+.chandelier {
+
+    display: none;
+
+    @include mxn.desktop {
+
+        position: absolute;
+        width: 15rem;
+        height: 20rem;
+        right: 32rem;
+        top: 0;
+        border: 0 solid #000000;
+        background: url(../img/Chandelier.svg);
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+        display: inline;
+    }
+}
+
+.person {
+
+    display: none;
+
+    @include mxn.desktop {
+
+        position: absolute;
+        width: 40rem;
+        height: 40rem;
+        right: 15rem;
+        top: 26rem;
+        border: 0 solid #000000;
+        background: url(../img/Person.svg);
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+        display: inline;
+    }
+}
+
+.invalid-feedback{
+    margin-top: -2.5rem;
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+    color: vr.$rojo;
+    text-align: right;
+}

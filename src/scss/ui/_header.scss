@@ -1,0 +1,81 @@
+@use "base/variables" as vr;
+@use "base/mixins" as mxn;
+
+.header{
+    padding: 3rem;
+    background-color: vr.$blanco;
+
+    &__barra{
+        display: flex;
+        flex-direction: column;
+
+        @include mxn.tablet{
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+        }
+    }
+
+    &__logo{
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+    }
+
+    &__logo-img{
+        width: 8.5rem;
+        height: 8.5rem;
+    }
+
+    &__titulo{
+        font-size: 5rem;
+        font-family: vr.$fuente-secundaria;
+        color: vr.$negro;
+        margin: 0;
+    }
+
+    &__subtitulo{
+        font-size: 1.5rem;
+        margin: 0;
+        color: lighten(vr.$negro, 48%);
+    }
+
+    &__iconos{
+        display: flex;
+        justify-content: space-evenly;
+        gap: 3rem;
+        order: 1;
+        font-size: 3rem;
+        border-radius: 1rem;
+        border: 0.3rem solid vr.$primario;
+        width: 20rem;
+        padding: 1rem;
+        margin: 1rem auto;
+
+        @include mxn.tablet{
+            justify-content: unset;
+            order: 3;
+            border: none;
+            border-radius: unset;
+            width: auto;
+            margin: 0;
+            padding: auto;
+        }
+    }
+
+    &__iconos-enlace {
+
+        color: black;
+        transition: 0.25s;
+
+        &:hover {
+            color: vr.$primario;
+            transition: 0.25s;
+        }
+    }
+   
+}
+
+.fa-solid.fa-circle-user {
+    cursor: pointer;
+}

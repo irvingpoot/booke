@@ -1,0 +1,210 @@
+@use "base/variables" as vr;
+@use "base/mixins" as mxn;
+
+main{
+    color: vr.$negro;
+    font-family: vr.$fuente-principal;
+    height: 100%;
+}
+
+.contenedor-titulo{
+    position: relative;
+    overflow: hidden;
+    
+    &_fondonav{
+        object-fit: cover;
+    }
+}
+
+.contenedor-info {
+    display: flex;
+    flex-direction: column;
+    border: 2px solid #ccc; /* Color gris para el margen */
+    border-radius: 10px;
+    margin: 5rem 1rem 5rem 1rem;
+    padding: 1rem 1rem 1rem 1rem;
+
+    @include mxn.tablet{
+        width: 90%;
+    }
+
+    @include mxn.desktop{
+        width: 90%;
+        display: grid;
+        grid:
+        "contenedor-izquierda contenedor-detalles" 1fr
+        / 1fr 1fr;
+        margin: 5rem 5rem 5rem 5rem;
+    }
+}
+//Parte izquierda
+.contenedor-izquierda { 
+    grid-area: contenedor-izquierda; 
+    margin-right: 1rem;
+}
+
+.contenedor-portada{
+    background-color: #F7F8FA;
+    margin: 2rem;
+    display: flex;
+    justify-content: center;
+}
+
+.pie-de-foto{
+    text-align: center;
+
+    &_envio{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 5px;
+        color: #56B280;
+    }
+}
+
+.truck{
+    color: black;
+}
+
+//Parte derecha
+
+.cont-detalles{
+    display: flex;
+    flex-direction: column;
+    @include mxn.desktop{
+        padding-right: 2rem;
+    }
+}
+
+.detalles-sup { 
+    grid-area: contenedor-detalles; 
+    color: vr.$negro;
+    font-size: 2rem;
+    font-weight: 500;
+    font-family: vr.$fuente-principal;
+    text-align: center;
+
+    &_negrita{
+        font-weight: bold;
+    }
+
+    @include mxn.tablet{
+        font-size: 2.5rem;
+    }
+}
+
+
+.contenedor-carrito{
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    padding-top: 4rem;
+    padding-bottom: 1.5rem;
+}
+
+.input-cantidad{
+    border: none;
+    width: 60px;
+    height: 100%;
+    font-weight: 500;
+    text-align: center;
+
+    &::-webkit-inner-spin-button,
+    &::-webkit-outer-spin-button{
+        -webkit-appearance: none;
+        appearance: none;
+    }
+
+    &:focus{
+        outline: none;
+    }
+}
+
+.btncolor{
+    color: vr.$primario;
+}
+
+.btn-add-cart{
+    width: 300px;
+    border: none;
+    border-radius: 2.5rem;
+    background-color: vr.$primario;
+    padding: 10px;
+    color: #f7f7f7;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-weight: 100;
+    cursor: pointer;
+}
+
+
+.detalles { 
+    grid-area: contenedor-detalles;
+    border: 2px solid #ccc; /* Color gris para el margen */
+    border-radius: 10px;
+    padding-left: 1rem;
+    font-family: vr.$fuente-principal;
+    font-weight: bold;
+    font-size: 1.5rem;
+    max-height: fit-content;
+
+    &__titulo{
+        font-family: vr.$fuente-principal;
+        text-align: center;
+        font-weight: bold;
+    }
+
+    @include mxn.tablet{
+        font-size: 2rem;
+    }
+
+}
+
+.formulario-carrito-compras{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    &__submit{
+        @include mxn.boton(vr.$primario,vr.$blanco);
+        max-width: 20rem;
+        gap: 1rem;
+        font-weight: 400;
+        border-radius: 1rem;
+    }
+}
+
+.boton_regresar{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    font-family: vr.$fuente-principal;
+    border: 0px solid #e9f4fb;
+    border-radius: 2.5rem;
+    font-size: 1.8rem;
+    color: #FFFFFF;
+    font-weight: 700;
+    text-decoration: none;
+    padding: 1rem 2rem;
+    transition: .5s;
+    
+    &:hover {
+        
+        border: none;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        color: #FFFFFF;
+        transition: .5s;
+    }
+    background: #C5801A;
+
+    @include mxn.tablet{
+        font-size: 2rem;
+        width: 25rem;
+        height: 5rem;
+    }
+}
