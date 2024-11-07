@@ -1,86 +1,112 @@
--- MySQL dump 10.13  Distrib 8.0.33, for Win64 (x86_64)
+-- phpMyAdmin SQL Dump
+-- version 5.2.1
+-- https://www.phpmyadmin.net/
 --
--- Host: localhost    Database: booke
--- ------------------------------------------------------
--- Server version	8.0.31
+-- Servidor: 127.0.0.1
+-- Tiempo de generación: 07-11-2024 a las 16:10:30
+-- Versión del servidor: 10.4.28-MariaDB
+-- Versión de PHP: 8.2.4
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!50503 SET NAMES utf8 */;
-/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
-/*!40103 SET TIME_ZONE='+00:00' */;
-/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
-/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
-/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
-/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+/*!40101 SET NAMES utf8mb4 */;
 
 --
--- Table structure for table `books`
+-- Base de datos: `booke`
 --
 
-DROP TABLE IF EXISTS `books`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `books`
+--
+
 CREATE TABLE `books` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `bookIsbn` varchar(45) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `bookTitle` varchar(45) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `bookAuthor` varchar(45) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `bookEdition` varchar(45) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `bookCategory` varchar(45) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `bookStock` int DEFAULT NULL,
-  `imagen` varchar(45) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `bookPrice` decimal(10,2) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
+  `id` int(11) NOT NULL,
+  `bookIsbn` varchar(45) DEFAULT NULL,
+  `bookTitle` varchar(45) DEFAULT NULL,
+  `bookAuthor` varchar(45) DEFAULT NULL,
+  `bookEdition` varchar(45) DEFAULT NULL,
+  `bookCategory` varchar(45) DEFAULT NULL,
+  `bookStock` int(11) DEFAULT NULL,
+  `imagen` varchar(45) DEFAULT NULL,
+  `bookPrice` decimal(10,2) DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `books`
+-- Volcado de datos para la tabla `books`
 --
 
-LOCK TABLES `books` WRITE;
-/*!40000 ALTER TABLE `books` DISABLE KEYS */;
-INSERT INTO `books` VALUES (20,'9786073836609','Elon Musk',' Walter Isaacson','3ra Edición','Negocios y Finanzas',30,'1.jpeg',549.00),(17,'9786073836159','Una historia en cada hijo te dio',' Gerardo Australia','1ra Edición','Historia',30,'4.jpeg',399.00),(18,'9786075578354','Los Divagantes',' Guadalupe Nettel','2da Edición','Literatura y Novela',30,'3.jpeg',320.00),(19,'9786073906036','La mesa herida','Laura Martínez-Belli','3ra Edición','Literatura y Novela',30,'2.jpeg',348.00),(15,'9786073830423','Hijos del Neoliberalismo','Ana Lilia Pérez','1ra Edición','Historia',30,'6.jpeg',299.00),(16,'9788419654205','Gran guía visual del cosmos',' Toshifumi Fumatase','2da Edición','Ciencia y Naturaleza',30,'5.jpeg',469.00);
-/*!40000 ALTER TABLE `books` ENABLE KEYS */;
-UNLOCK TABLES;
+INSERT INTO `books` (`id`, `bookIsbn`, `bookTitle`, `bookAuthor`, `bookEdition`, `bookCategory`, `bookStock`, `imagen`, `bookPrice`) VALUES
+(20, '9786073836609', 'Elon Musk', ' Walter Isaacson', '3ra Edición', 'Negocios y Finanzas', 30, '1.jpeg', 549.00),
+(17, '9786073836159', 'Una historia en cada hijo te dio', ' Gerardo Australia', '1ra Edición', 'Historia', 30, '4.jpeg', 399.00),
+(18, '9786075578354', 'Los Divagantes', ' Guadalupe Nettel', '2da Edición', 'Literatura y Novela', 30, '3.jpeg', 320.00),
+(19, '9786073906036', 'La mesa herida', 'Laura Martínez-Belli', '3ra Edición', 'Literatura y Novela', 30, '2.jpeg', 348.00),
+(15, '9786073830423', 'Hijos del Neoliberalismo', 'Ana Lilia Pérez', '1ra Edición', 'Historia', 30, '6.jpeg', 299.00),
+(16, '9788419654205', 'Gran guía visual del cosmos', ' Toshifumi Fumatase', '2da Edición', 'Ciencia y Naturaleza', 30, '5.jpeg', 469.00);
+
+-- --------------------------------------------------------
 
 --
--- Table structure for table `users`
+-- Estructura de tabla para la tabla `users`
 --
 
-DROP TABLE IF EXISTS `users`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `users` (
-  `userId` int NOT NULL AUTO_INCREMENT,
-  `userFirstName` varchar(45) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `userLastName` varchar(45) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `userEmail` varchar(45) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `userPassword` varchar(45) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `isAdmin` tinyint DEFAULT NULL,
-  PRIMARY KEY (`userId`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
+  `userId` int(11) NOT NULL,
+  `userFirstName` varchar(45) DEFAULT NULL,
+  `userLastName` varchar(45) DEFAULT NULL,
+  `userEmail` varchar(45) DEFAULT NULL,
+  `userPassword` varchar(45) DEFAULT NULL,
+  `isAdmin` tinyint(4) DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `users`
+-- Volcado de datos para la tabla `users`
 --
 
-LOCK TABLES `users` WRITE;
-/*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'Fernando','Joachin','admin@correo.com','helado123',1),(2,'José Carlos','Leo','correo@correo.com','helado123',0);
-/*!40000 ALTER TABLE `users` ENABLE KEYS */;
-UNLOCK TABLES;
-/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+INSERT INTO `users` (`userId`, `userFirstName`, `userLastName`, `userEmail`, `userPassword`, `isAdmin`) VALUES
+(1, 'Irving', 'Poot', 'admin@correo.com', 'helado123', 1),
+(2, 'Marco', 'Saldivar', 'correo@correo.com', 'helado123', 0);
 
-/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
-/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
-/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+--
+-- Índices para tablas volcadas
+--
+
+--
+-- Indices de la tabla `books`
+--
+ALTER TABLE `books`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`userId`);
+
+--
+-- AUTO_INCREMENT de las tablas volcadas
+--
+
+--
+-- AUTO_INCREMENT de la tabla `books`
+--
+ALTER TABLE `books`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+
+--
+-- AUTO_INCREMENT de la tabla `users`
+--
+ALTER TABLE `users`
+  MODIFY `userId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+COMMIT;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
-
--- Dump completed on 2023-12-01 18:06:59
