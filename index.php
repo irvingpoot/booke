@@ -63,7 +63,7 @@
                     <input type="submit" value="Ingresar" class="formulario-login__input--submit">
 
                     <div class="formulario-login__registrarse">
-                        ¿No tienes una cuenta? <a href="#" class="formulario-login__registrarse-enlace">Regístrate</a>
+                        ¿No tienes una cuenta? <a href="Registro.php" class="formulario-login__registrarse-enlace">Regístrate</a>
                     </div>
                 </form>
             </div>
