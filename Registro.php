@@ -18,7 +18,7 @@
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&family=Righteous&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         <link rel="stylesheet" href="./build/css/app.css">
-        <title>Iniciar Sesión</title>
+        <title>Registrarse</title>
     </head>
 
     <body>
@@ -37,7 +37,7 @@
                 </div>
                 <h1 class="login__titulo">Crea tu cuenta</h1>
                 
-                <form action="#" name="booke" class="formulario-registro" method="post">
+                <form class="formulario-login" method="post">
                     <div class="formulario-login__campo">
                         <input class="formulario-login__input" name="nombre" type="text" required>
                         <span></span>

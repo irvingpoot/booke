@@ -1,5 +1,12 @@
 <?php
     require_once __DIR__ . '/controllers/LoginController/login.php';
+
+    $servidor ="localhost" ;
+    $usuario = "root";
+    $clave= "";
+    $base_datos="booke";
+
+    $enlace = mysqli_connect ($servidor,$usuario,$clave,$base_datos);
 ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -11,7 +18,7 @@
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&family=Righteous&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         <link rel="stylesheet" href="./build/css/app.css">
-        <title>Iniciar Sesión</title>
+        <title>Recuperar contraseña</title>
     </head>
 
     <body>
@@ -28,47 +35,49 @@
                         <img loading="lazy" width="200" height="200" src="./build/img/logo.png" alt="Logo">
                     </picture>
                 </div>
-                <h1 class="login__titulo">Iniciar Sesión</h1>
+                <h1 class="login__titulo">Recupera tu contraseña</h1>
                 
-                <?php 
-                    $response = iniciarSesion();
-                    $errors = $response['errors'] ?? [];
-                    $usuario = $response['usuario'] ?? "";
-                ?>
-                <form class="formulario-login" method="post">
+                <form class="formulario-login" method="get">
                     <div class="formulario-login__campo">
-                        <input class="formulario-login__input" name="userEmail" type="text" value="<?= $usuario->userEmail ?? "" ?>" required>
+                        <input class="formulario-login__input" name="email" type="text" required>
                         <span></span>
                         <label class="formulario-login__label">Correo</label>
                     </div>
-                    <?php if (isset($errors['userEmail'])) : ?>
-                        <div class="invalid-feedback">
-                            <?= $errors['userEmail'] ?>
-                        </div>
-                    <?php endif ?>
 
-                    <div class="formulario-login__campo">
-                        <input class="formulario-login__input" name="userPassword" type="password" required>
-                        <span></span>
-                        <label class="formulario-login__label">Contraseña</label>
-                    </div>
-                    <?php if (isset($errors['userPassword'])) : ?>
-                        <div class="invalid-feedback">
-                            <?= $errors['userPassword'] ?>
-                        </div>
-                    <?php endif ?>
-
-                    <a href="recuperarContraseña.php" class="formulario-login__enlace">¿Olvidaste tu contraseña?</a>
-
-                    <input type="submit" value="Ingresar" class="formulario-login__input--submit">
+                    <input type="submit" value="Recuperar Contraseña" class="formulario-login__input--submit" name="recuperar" href="index.php">
 
                     <div class="formulario-login__registrarse">
-                        ¿No tienes una cuenta? <a href="Registro.php" class="formulario-login__registrarse-enlace">Regístrate</a>
+                        <a href="index.php" class="formulario-login__registrarse-enlace">Regresar</a>
                     </div>
                 </form>
             </div>
         </main>
         <script src="./build/js/main.min.js"></script>
     </body>
-</html>
 
+    <?php
+
+    if(isset($_GET['recuperar'])){
+
+        $email =$_GET['email'];
+        $isAdmin = "0";
+
+        $consultardatos = "SELECT userPassword FROM users WHERE userEmail = '$email'";
+
+        $resultado = mysqli_query($enlace,$consultardatos);
+
+        if ($resultado && mysqli_num_rows($resultado) > 0) {
+            $fila = mysqli_fetch_assoc($resultado);
+            $contraseña = $fila['userPassword'];
+            echo "<script>alert('Contraseña: ' +"  . htmlspecialchars($contraseña) .  ");</script>";
+            
+        } else {
+            echo "<script>alert('No se encontró la contraseña asociado a su cuenta.');</script>";
+        }
+    }
+
+    ?>
+
+
+
+</html>
