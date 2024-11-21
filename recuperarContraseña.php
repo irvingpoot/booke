@@ -60,7 +60,6 @@
     if(isset($_GET['recuperar'])){
 
         $email =$_GET['email'];
-        $isAdmin = "0";
 
         $consultardatos = "SELECT userPassword FROM users WHERE userEmail = '$email'";
 
@@ -69,7 +68,7 @@
         if ($resultado && mysqli_num_rows($resultado) > 0) {
             $fila = mysqli_fetch_assoc($resultado);
             $contraseña = $fila['userPassword'];
-            echo "<script>alert('Contraseña: ' +"  . htmlspecialchars($contraseña) .  ");</script>";
+            echo "<script>alert('Contraseña: $contraseña');</script>";
             
         } else {
             echo "<script>alert('No se encontró la contraseña asociado a su cuenta.');</script>";
